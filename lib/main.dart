@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keep_notes/views/screens/notes_page.dart';
 import 'views/screens/splash_page.dart';
 import 'views/screens/login_page.dart';
 import 'views/screens/home_page.dart';
@@ -19,6 +20,7 @@ void main() async {
         "/" : (context) => const HomePage(),
         "/splash_page" : (context) => const SplashPage(),
         "/login_page" : (context) => const LoginPage(),
+        "/notes_page" : (context) => const NotesPage(),
       },
     ),
   );

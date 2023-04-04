@@ -26,11 +26,12 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          const Spacer(flex: 1,),
           const Expanded(
-            flex: 4,
+            flex: 2,
             child: ClipRRect(
               child: Image(
-                image: AssetImage("assets/images/logogif.gif"),
+                image: AssetImage("assets/images/Logo_with_gif.gif"),
                 fit: BoxFit.cover,
               ),
             ),

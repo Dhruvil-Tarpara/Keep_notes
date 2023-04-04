@@ -41,7 +41,7 @@ class FirebaseAuthHelper {
     return object;
   }
 
- Future<Massage> signInWithGoogle() async {
+  Future<Massage> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
@@ -52,8 +52,22 @@ class FirebaseAuthHelper {
     UserCredential userCredential =
         await firebaseAuth.signInWithCredential(credential);
     User? user = userCredential.user;
-  Map data = {};
-  data.addAll({"user" : user, "error" : "Null"});
+    Map data = {};
+    data.addAll({"user": user, "error": "Authentication Problems..."});
+    Massage object = Massage.fromData(data: data);
+    return object;
+  }
+
+  Future<Massage> signInWithGitHub() async {
+    GithubAuthProvider githubProvider = GithubAuthProvider();
+
+    UserCredential userCredential =
+        await firebaseAuth.signInWithProvider(githubProvider);
+
+    User? user = userCredential.user;
+
+    Map data = {};
+    data.addAll({"user": user, "error": "Authentication Problems..."});
     Massage object = Massage.fromData(data: data);
     return object;
   }
